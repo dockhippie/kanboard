@@ -1,6 +1,6 @@
 # Kanboard
 
-[![](https://badge.imagelayers.io/webhippie/kanboard:latest.svg)](https://imagelayers.io/?images=webhippie/kanboard:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/webhippie/kanboard.svg)](https://microbadger.com/images/webhippie/kanboard "Get your own image badge on microbadger.com")
 
 These are docker images for [Kanboard](https://kanboard.net/) running on an
 [PHP Caddy container](https://registry.hub.docker.com/u/webhippie/php-caddy/).
