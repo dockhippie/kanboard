@@ -11,7 +11,8 @@ WORKDIR /srv/www
 RUN apk update && \
   apk add \
     git \
-    sqlite && \
+    sqlite \
+    php7-ldap && \
   rm -rf \
     /var/cache/apk/*
 
