@@ -2,18 +2,13 @@
 
 [![](https://images.microbadger.com/badges/image/webhippie/kanboard.svg)](https://microbadger.com/images/webhippie/kanboard "Get your own image badge on microbadger.com")
 
-These are docker images for [Kanboard](https://kanboard.net/) running on an
-[PHP Caddy container](https://registry.hub.docker.com/u/webhippie/php-caddy/).
+These are docker images for [Kanboard](https://kanboard.net/) running on an [PHP Caddy container](https://registry.hub.docker.com/u/webhippie/php-caddy/).
 
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/kanboard/tree/master)
-  available as ```webhippie/kanboard:latest``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
-* [1.0.42](https://github.com/dockhippie/kanboard/tree/1.0.42)
-  available as ```webhippie/kanboard:1.0.42``` at
-  [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
+* [latest](https://github.com/dockhippie/kanboard/tree/master) available as ```webhippie/kanboard:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
+* [1.0.42](https://github.com/dockhippie/kanboard/tree/1.0.42) available as ```webhippie/kanboard:1.0.42``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
 
 
 ## Volumes
@@ -129,6 +124,10 @@ ENV CADDY_GRACE 5s
 ENV CADDY_HTTP2 true
 ENV CADDY_QUIET false
 ENV CADDY_WEBROOT /srv/www
+```
+
+```bash
+ENV CRON_ENABLED false
 ```
 
 
