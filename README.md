@@ -8,6 +8,7 @@ These are docker images for [Kanboard](https://kanboard.net/) running on an [PHP
 ## Versions
 
 * [latest](https://github.com/dockhippie/kanboard/tree/master) available as ```webhippie/kanboard:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
+* [1.0.43](https://github.com/dockhippie/kanboard/tree/1.0.43) available as ```webhippie/kanboard:1.0.43``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
 * [1.0.42](https://github.com/dockhippie/kanboard/tree/1.0.42) available as ```webhippie/kanboard:1.0.42``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/kanboard/)
 
 
@@ -100,35 +101,9 @@ ENV KANBOARD_TOTP_ISSUER Kanboard
 
 ## Inherited environment variables
 
-```bash
-ENV PHP_MEMORY_LIMIT 512M
-ENV PHP_POST_MAX_SIZE 2G
-ENV PHP_UPLOAD_MAX_FILESIZE 2G
-ENV PHP_MAX_EXECUTION_TIME 3600
-ENV PHP_MAX_INPUT_TIME 3600
-ENV PHP_DATE_TIMEZONE UTC
-ENV PHP_LOG_LEVEL warning
-ENV PHP_MAX_CHILDREN 75
-ENV PHP_MAX_REQUESTS 500
-ENV PHP_PROCESS_IDLE_TIMEOUT 10s
-ENV PHP_COMPOSER_INSTALL true
-```
-
-```bash
-ENV CADDY_AGREE false
-ENV CADDY_CA https://acme-v01.api.letsencrypt.org/directory
-ENV CADDY_CA_TIMEOUT 10s
-ENV CADDY_CPU 100%
-ENV CADDY_EMAIL
-ENV CADDY_GRACE 5s
-ENV CADDY_HTTP2 true
-ENV CADDY_QUIET false
-ENV CADDY_WEBROOT /srv/www
-```
-
-```bash
-ENV CRON_ENABLED false
-```
+* [webhippie/php-caddy](https://github.com/dockhippie/php/tree/master/caddy#available-environment-variables)
+* [webhippie/caddy](https://github.com/dockhippie/caddy#available-environment-variables)
+* [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 
 ## Contributing

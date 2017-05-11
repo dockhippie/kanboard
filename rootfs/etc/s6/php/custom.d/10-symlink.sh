@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "> symlink plugins"
+echo "> symlink app plugins"
 rm -rf /srv/www/plugins
 ln -sf \
   /var/lib/kanboard/plugins \

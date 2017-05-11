@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "> writing config"
+echo "> writing app config"
 /usr/bin/templater -d -p kanboard \
   -o /srv/www/config.php \
   /etc/templates/config.php.tmpl

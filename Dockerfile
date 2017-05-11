@@ -16,7 +16,7 @@ RUN apk update && \
   rm -rf \
     /var/cache/apk/*
 
-ENV KANBOARD_VERSION 1.0.42
+ENV KANBOARD_VERSION 1.0.43
 ENV KANBOARD_TARBALL https://github.com/kanboard/kanboard/archive/v${KANBOARD_VERSION}.tar.gz
 
 RUN curl -sLo - \
@@ -24,3 +24,15 @@ RUN curl -sLo - \
   chown -R caddy:caddy /srv/www
 
 ADD rootfs /
+
+ARG VERSION
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.version=$VERSION
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vcs-url="https://github.com/dockhippie/kanboard.git"
+LABEL org.label-schema.name="Kanboard"
+LABEL org.label-schema.vendor="Thomas Boerger"
+LABEL org.label-schema.schema-version="1.0"

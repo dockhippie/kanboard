@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "> creating directories"
+echo "> creating app directories"
 mkdir -p \
   /var/lib/kanboard/data \
   /var/lib/kanboard/plugins \
