@@ -9,6 +9,7 @@ EXPOSE 8080
 WORKDIR /srv/www
 
 RUN apk update && \
+  apk upgrade && \
   apk add \
     git \
     sqlite \
