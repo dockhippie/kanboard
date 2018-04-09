@@ -16,7 +16,7 @@ RUN apk update && \
   rm -rf \
     /var/cache/apk/*
 
-ENV KANBOARD_VERSION 1.0.43
+ENV KANBOARD_VERSION 1.2.2
 ENV KANBOARD_TARBALL https://github.com/kanboard/kanboard/archive/v${KANBOARD_VERSION}.tar.gz
 
 RUN curl -sLo - \

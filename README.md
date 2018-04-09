@@ -15,7 +15,6 @@ These are docker images for [Kanboard](https://kanboard.net/) running on an [PHP
 ## Volumes
 
 * /var/lib/kanboard
-* /srv/www/vendor
 
 
 ## Ports
@@ -27,7 +26,7 @@ These are docker images for [Kanboard](https://kanboard.net/) running on an [PHP
 
 ```bash
 ENV KANBOARD_DEBUG false
-ENV KANBOARD_PLUGIN_API_URL https://kanboard.net/plugins.json
+ENV KANBOARD_PLUGIN_API_URL https://kanboard.org/plugins.json
 ENV KANBOARD_PLUGIN_INSTALLER true
 ENV KANBOARD_CACHE_DRIVER memory
 ENV KANBOARD_MAIL_CONFIGURATION true
@@ -96,6 +95,7 @@ ENV KANBOARD_HTTP_PROXY_USERNAME
 ENV KANBOARD_HTTP_PROXY_PASSWORD
 ENV KANBOARD_HTTP_VERIFY_SSL_CERTIFICATE true
 ENV KANBOARD_TOTP_ISSUER Kanboard
+ENV KANBOARD_EXTERNAL_AUTH_EXCLUDE_FIELDS username
 ```
 
 

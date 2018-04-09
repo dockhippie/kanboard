@@ -4,7 +4,7 @@ declare -x KANBOARD_DEBUG
 [[ -z "${KANBOARD_DEBUG}" ]] && KANBOARD_DEBUG="false"
 
 declare -x KANBOARD_PLUGIN_API_URL
-[[ -z "${KANBOARD_PLUGIN_API_URL}" ]] && KANBOARD_PLUGIN_API_URL="https://kanboard.net/plugins.json"
+[[ -z "${KANBOARD_PLUGIN_API_URL}" ]] && KANBOARD_PLUGIN_API_URL="https://kanboard.org/plugins.json"
 
 declare -x KANBOARD_PLUGIN_INSTALLER
 [[ -z "${KANBOARD_PLUGIN_INSTALLER}" ]] && KANBOARD_PLUGIN_INSTALLER="true"
@@ -183,6 +183,10 @@ declare -x KANBOARD_HTTP_VERIFY_SSL_CERTIFICATE
 declare -x KANBOARD_TOTP_ISSUER
 [[ -z "${KANBOARD_TOTP_ISSUER}" ]] && KANBOARD_TOTP_ISSUER="Kanboard"
 
+declare -x KANBOARD_EXTERNAL_AUTH_EXCLUDE_FIELDS
+[[ -z "${KANBOARD_EXTERNAL_AUTH_EXCLUDE_FIELDS}" ]] && KANBOARD_EXTERNAL_AUTH_EXCLUDE_FIELDS="username"
+
+
 declare -x KANBOARD_DB_DRIVER
 [[ -z "${KANBOARD_DB_DRIVER}" ]] && KANBOARD_DB_DRIVER="sqlite"
 
@@ -216,6 +220,9 @@ case "${KANBOARD_DB_DRIVER}" in
 
     declare -x KANBOARD_DB_SSL_CA
     [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
+
+    declare -x KANBOARD_DB_VERIFY_SERVER_CERT
+    [[ -z "${KANBOARD_DB_VERIFY_SERVER_CERT}" ]] && KANBOARD_DB_VERIFY_SERVER_CERT=""
     ;;
 
   "postgres")
@@ -242,5 +249,8 @@ case "${KANBOARD_DB_DRIVER}" in
 
     declare -x KANBOARD_DB_SSL_CA
     [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
+
+    declare -x KANBOARD_DB_VERIFY_SERVER_CERT
+    [[ -z "${KANBOARD_DB_VERIFY_SERVER_CERT}" ]] && KANBOARD_DB_VERIFY_SERVER_CERT=""
     ;;
 esac
