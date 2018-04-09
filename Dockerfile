@@ -1,7 +1,7 @@
 FROM webhippie/php-caddy:latest
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
 
-VOLUME ["/var/lib/kanboard", "/srv/www/vendor"]
+VOLUME ["/var/lib/kanboard"]
 
 ENTRYPOINT ["/usr/bin/entrypoint"]
 CMD ["/bin/s6-svscan", "/etc/s6"]
