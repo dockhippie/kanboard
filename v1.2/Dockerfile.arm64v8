@@ -18,7 +18,7 @@ RUN apk update && \
   apk add git sqlite php7-ldap && \
   rm -rf /var/cache/apk/*
 
-ENV KANBOARD_VERSION 1.2.9
+ENV KANBOARD_VERSION 1.2.12
 ENV KANBOARD_TARBALL https://github.com/kanboard/kanboard/archive/v${KANBOARD_VERSION}.tar.gz
 
 RUN curl -sLo - ${KANBOARD_TARBALL} | tar -xzf - --strip 1 -C /srv/www && \
