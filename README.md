@@ -3,7 +3,7 @@
 [![Build Status](https://cloud.drone.io/api/badges/dockhippie/kanboard/status.svg)](https://cloud.drone.io/dockhippie/kanboard)
 [![](https://images.microbadger.com/badges/image/webhippie/kanboard.svg)](https://microbadger.com/images/webhippie/kanboard "Get your own image badge on microbadger.com")
 
-These are docker images for [Gitea](https://kanboard.io/en-us/) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
+These are docker images for [Kanboard](https://kanboard.io/en-us/) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
 
 
 ## Versions
