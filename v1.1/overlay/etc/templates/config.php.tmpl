@@ -2,7 +2,8 @@
 
 define('DATA_DIR', '{{ getenv "KANBOARD_DATA_DIR" }}');
 define('DEBUG', {{ getenv "KANBOARD_DEBUG" }});
-define('LOG_DRIVER', 'stderr');
+define('LOG_DRIVER', '{{ getenv "KANBOARD_LOG_DRIVER" }}');
+define('LOG_FILE', '{{ getenv "KANBOARD_LOG_FILE" }}');
 define('PLUGINS_DIR', '{{ getenv "KANBOARD_PLUGINS_DIR" }}');
 define('PLUGIN_API_URL', '{{ getenv "KANBOARD_PLUGIN_API_URL" }}');
 define('PLUGIN_INSTALLER', {{ getenv "KANBOARD_PLUGIN_INSTALLER" }});
@@ -24,7 +25,7 @@ define('DB_USERNAME', '{{ getenv "KANBOARD_DB_USERNAME" }}');
 define('DB_PASSWORD', '{{ getenv "KANBOARD_DB_PASSWORD" }}');
 define('DB_HOSTNAME', '{{ getenv "KANBOARD_DB_HOSTNAME" }}');
 define('DB_NAME', '{{ getenv "KANBOARD_DB_NAME" }}');
-define('DB_PORT', {{ if eq (getenv "KANBOARD_DB_PORT") "" }}null{{ else }}{{ getenv "KANBOARD_DB_PORT" }}{{end}});
+define('DB_PORT', {{ if eq (getenv "KANBOARD_DB_PORT") "" }}null{{ else }}'{{ getenv "KANBOARD_DB_PORT" }}'{{end}});
 define('DB_SSL_KEY', {{ if eq (getenv "KANBOARD_DB_SSL_KEY") "" }}null{{ else }}'{{ getenv "KANBOARD_DB_SSL_KEY" }}'{{end}});
 define('DB_SSL_CERT', {{ if eq (getenv "KANBOARD_DB_SSL_CERT") "" }}null{{ else }}'{{ getenv "KANBOARD_DB_SSL_CERT" }}'{{end}});
 define('DB_SSL_CA', {{ if eq (getenv "KANBOARD_DB_SSL_CA") "" }}null{{ else }}'{{ getenv "KANBOARD_DB_SSL_CA" }}'{{end}});

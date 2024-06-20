@@ -1,5 +1,8 @@
 #!/bin/bash
 
+declare -x KANBOARD_SKIP_CHOWN
+[[ -z "${KANBOARD_SKIP_CHOWN}" ]] && KANBOARD_SKIP_CHOWN="false"
+
 declare -x KANBOARD_BASE_DIR
 [[ -z "${KANBOARD_BASE_DIR}" ]] && KANBOARD_BASE_DIR="/var/lib/kanboard"
 
@@ -17,6 +20,12 @@ declare -x KANBOARD_FILES_DIR
 
 declare -x KANBOARD_DEBUG
 [[ -z "${KANBOARD_DEBUG}" ]] && KANBOARD_DEBUG="false"
+
+declare -x KANBOARD_LOG_DRIVER
+[[ -z "${KANBOARD_LOG_DRIVER}" ]] && KANBOARD_LOG_DRIVER="stderr"
+
+declare -x KANBOARD_LOG_FILE
+[[ -z "${KANBOARD_LOG_FILE}" ]] && KANBOARD_LOG_FILE="${KANBOARD_BASE_DIR}/debug.log"
 
 declare -x KANBOARD_PLUGIN_API_URL
 [[ -z "${KANBOARD_PLUGIN_API_URL}" ]] && KANBOARD_PLUGIN_API_URL="https://kanboard.org/plugins.json"
@@ -204,61 +213,66 @@ declare -x KANBOARD_EXTERNAL_AUTH_EXCLUDE_FIELDS
 declare -x KANBOARD_DB_DRIVER
 [[ -z "${KANBOARD_DB_DRIVER}" ]] && KANBOARD_DB_DRIVER="sqlite"
 
+declare -x KANBOARD_DB_WAIT_FOR_FAIL
+[[ -z "${KANBOARD_DB_WAIT_FOR_FAIL}" ]] && KANBOARD_DB_WAIT_FOR_FAIL="true"
+
 case "${KANBOARD_DB_DRIVER}" in
-  "sqlite")
-    declare -x KANBOARD_DB_NAME
-    [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="/var/lib/kanboard/database.sqlite3"
-    ;;
+    "sqlite")
+        declare -x KANBOARD_DB_NAME
+        [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="/var/lib/kanboard/database.sqlite3"
+        ;;
 
-  "mysql")
-    declare -x KANBOARD_DB_HOSTNAME
-    [[ -z "${KANBOARD_DB_HOSTNAME}" ]] && KANBOARD_DB_HOSTNAME="mysql"
+    "mysql")
+        declare -x KANBOARD_DB_HOSTNAME
+        [[ -z "${KANBOARD_DB_HOSTNAME}" ]] && KANBOARD_DB_HOSTNAME="mysql"
 
-    declare -x KANBOARD_DB_PORT
-    [[ -z "${KANBOARD_DB_PORT}" ]] && KANBOARD_DB_PORT="3306"
+        declare -x KANBOARD_DB_PORT
+        [[ -z "${KANBOARD_DB_PORT}" ]] && KANBOARD_DB_PORT="3306"
 
-    declare -x KANBOARD_DB_NAME
-    [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="kanboard"
+        declare -x KANBOARD_DB_NAME
+        [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="kanboard"
 
-    declare -x KANBOARD_DB_USERNAME
-    [[ -z "${KANBOARD_DB_USERNAME}" ]] && KANBOARD_DB_USERNAME="root"
+        declare -x KANBOARD_DB_USERNAME
+        [[ -z "${KANBOARD_DB_USERNAME}" ]] && KANBOARD_DB_USERNAME="root"
 
-    declare -x KANBOARD_DB_PASSWORD
-    [[ -z "${KANBOARD_DB_PASSWORD}" ]] && KANBOARD_DB_PASSWORD="root"
+        declare -x KANBOARD_DB_PASSWORD
+        [[ -z "${KANBOARD_DB_PASSWORD}" ]] && KANBOARD_DB_PASSWORD="root"
 
-    declare -x KANBOARD_DB_SSL_KEY
-    [[ -z "${KANBOARD_DB_SSL_KEY}" ]] && KANBOARD_DB_SSL_KEY=""
+        declare -x KANBOARD_DB_SSL_KEY
+        [[ -z "${KANBOARD_DB_SSL_KEY}" ]] && KANBOARD_DB_SSL_KEY=""
 
-    declare -x KANBOARD_DB_SSL_CERT
-    [[ -z "${KANBOARD_DB_SSL_CERT}" ]] && KANBOARD_DB_SSL_CERT=""
+        declare -x KANBOARD_DB_SSL_CERT
+        [[ -z "${KANBOARD_DB_SSL_CERT}" ]] && KANBOARD_DB_SSL_CERT=""
 
-    declare -x KANBOARD_DB_SSL_CA
-    [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
-    ;;
+        declare -x KANBOARD_DB_SSL_CA
+        [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
+        ;;
 
-  "postgres")
-    declare -x KANBOARD_DB_HOSTNAME
-    [[ -z "${KANBOARD_DB_HOSTNAME}" ]] && KANBOARD_DB_HOSTNAME="postgres"
+    "postgres")
+        declare -x KANBOARD_DB_HOSTNAME
+        [[ -z "${KANBOARD_DB_HOSTNAME}" ]] && KANBOARD_DB_HOSTNAME="postgres"
 
-    declare -x KANBOARD_DB_PORT
-    [[ -z "${KANBOARD_DB_PORT}" ]] && KANBOARD_DB_PORT="5432"
+        declare -x KANBOARD_DB_PORT
+        [[ -z "${KANBOARD_DB_PORT}" ]] && KANBOARD_DB_PORT="5432"
 
-    declare -x KANBOARD_DB_NAME
-    [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="kanboard"
+        declare -x KANBOARD_DB_NAME
+        [[ -z "${KANBOARD_DB_NAME}" ]] && KANBOARD_DB_NAME="kanboard"
 
-    declare -x KANBOARD_DB_USERNAME
-    [[ -z "${KANBOARD_DB_USERNAME}" ]] && KANBOARD_DB_USERNAME="postgres"
+        declare -x KANBOARD_DB_USERNAME
+        [[ -z "${KANBOARD_DB_USERNAME}" ]] && KANBOARD_DB_USERNAME="postgres"
 
-    declare -x KANBOARD_DB_PASSWORD
-    [[ -z "${KANBOARD_DB_PASSWORD}" ]] && KANBOARD_DB_PASSWORD="postgres"
+        declare -x KANBOARD_DB_PASSWORD
+        [[ -z "${KANBOARD_DB_PASSWORD}" ]] && KANBOARD_DB_PASSWORD="postgres"
 
-    declare -x KANBOARD_DB_SSL_KEY
-    [[ -z "${KANBOARD_DB_SSL_KEY}" ]] && KANBOARD_DB_SSL_KEY=""
+        declare -x KANBOARD_DB_SSL_KEY
+        [[ -z "${KANBOARD_DB_SSL_KEY}" ]] && KANBOARD_DB_SSL_KEY=""
 
-    declare -x KANBOARD_DB_SSL_CERT
-    [[ -z "${KANBOARD_DB_SSL_CERT}" ]] && KANBOARD_DB_SSL_CERT=""
+        declare -x KANBOARD_DB_SSL_CERT
+        [[ -z "${KANBOARD_DB_SSL_CERT}" ]] && KANBOARD_DB_SSL_CERT=""
 
-    declare -x KANBOARD_DB_SSL_CA
-    [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
-    ;;
+        declare -x KANBOARD_DB_SSL_CA
+        [[ -z "${KANBOARD_DB_SSL_CA}" ]] && KANBOARD_DB_SSL_CA=""
+        ;;
 esac
+
+true
