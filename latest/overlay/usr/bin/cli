@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-set -e
+set -eo pipefail
 
 pushd /srv/www >/dev/null
-  su-exec caddy php cli "${@}"
+  su-exec apache php cli "${@}"
 popd >/dev/null
