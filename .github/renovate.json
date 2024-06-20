@@ -19,7 +19,7 @@
         {
             "description": "Update tags without merge",
             "datasources": [
-                "github-tags"
+                "github-releases"
             ],
             "updateTypes": [
                 "major",
@@ -34,7 +34,7 @@
         {
             "description": "Update tags without merge",
             "datasources": [
-                "github-tags"
+                "github-releases"
             ],
             "updateTypes": [
                 "patch"
