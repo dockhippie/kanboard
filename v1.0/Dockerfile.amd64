@@ -14,7 +14,7 @@ RUN apk update && \
 ENV PHP_COMPOSER_INSTALL=false
 
 # renovate: datasource=github-releases depName=kanboard/kanboard
-ENV KANBOARD_VERSION=1.0.48
+ENV KANBOARD_VERSION=1.2.37
 
 # renovate: datasource=github-releases depName=aptible/supercronic
 ENV SUPERCRONIC_VERSION=0.2.30
