@@ -3,7 +3,7 @@
 [![Docker Build](https://github.com/dockhippie/kanboard/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/kanboard/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/kanboard)
 
 These are docker images for [Kanboard][upstream] running on our
-[Caddy PHP image][parent].
+[Apache PHP image][parent].
 
 ## Versions
 
@@ -122,8 +122,8 @@ KANBOARD_TOTP_ISSUER = Kanboard
 
 ## Inherited environment variables
 
-*  [webhippie/php-caddy](https://github.com/dockhippie/php-caddy#available-environment-variables)
-*  [webhippie/caddy](https://github.com/dockhippie/caddy#available-environment-variables)
+*  [webhippie/php-apache](https://github.com/dockhippie/php-apache#available-environment-variables)
+*  [webhippie/apache](https://github.com/dockhippie/apache#available-environment-variables)
 *  [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 ## Contributing
@@ -145,7 +145,7 @@ Copyright (c) 2015 Thomas Boerger <http://www.webhippie.de>
 ```
 
 [upstream]: https://github.com/kanboard/kanboard
-[parent]: https://github.com/dockhippie/php-caddy
+[parent]: https://github.com/dockhippie/php-apache
 [dockerhub]: https://hub.docker.com/r/webhippie/kanboard/tags
 [quayio]: https://quay.io/repository/webhippie/kanboard?tab=tags
 [github]: https://github.com/dockhippie/kanboard
