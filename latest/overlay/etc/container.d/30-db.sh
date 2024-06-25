@@ -7,11 +7,6 @@ fi
 
 case "${KANBOARD_DB_DRIVER}" in
     "sqlite")
-        if [ -z "${KANBOARD_DB_NAME}" ]; then
-            echo >&2 "missing KANBOARD_DB_NAME environment variable"
-            exit 1
-        fi
-
         if [ ! -f "${KANBOARD_DB_NAME}" ]; then
             echo "> creating sqlite db"
             su-exec \
