@@ -1,4 +1,4 @@
-FROM ghcr.io/dockhippie/php-apache:8.4-amd64@sha256:c4393a1e28c349eced8132f1206f029a2078918b15e41a4f2790e3087a81d888
+FROM ghcr.io/dockhippie/php-apache:8.4-amd64@sha256:cdc45ede3aaec924772f8d4c1586eff9467175758419f11ad49d5a929c244183
 
 VOLUME ["/var/lib/kanboard"]
 EXPOSE 8080
