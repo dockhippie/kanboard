@@ -1,7 +1,7 @@
 ---
 repository:
   name: kanboard
-  description: Docker images for kanboard
+  description: Docker images for Kanboard
   topics: docker, image
 
   private: false
